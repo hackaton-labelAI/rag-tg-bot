@@ -5,9 +5,9 @@ import config
 
 def get_default_markup():
     default_markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    item1 = types.KeyboardButton("Задать вопрос")
+    item1 = types.KeyboardButton("Помощь")
     item2 = types.KeyboardButton("Загрузить новый документ в базу знаний")
-    default_markup.add(item1, item2)
+    default_markup.add(item2, item1)
     return default_markup
 
 
@@ -24,6 +24,14 @@ def return_to_menu_markup():
     item1 = types.KeyboardButton("Хочу вернуться в главное меню🥺")
     default_markup.add(item1)
     return default_markup
+
+
+def help_markup():
+    default_markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    item1 = types.KeyboardButton("Помощь")
+    default_markup.add(item1)
+    return default_markup
+
 
 
 
