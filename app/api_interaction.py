@@ -9,7 +9,7 @@ def proccess_question(question: str):
         'accept': 'application/json',
     }
 
-    data = pass
+    data = ''# pass
     response = requests.post(url=f"{server_address}/api/chat", data=data, headers=headers)
 
     return json.loads(response.text)

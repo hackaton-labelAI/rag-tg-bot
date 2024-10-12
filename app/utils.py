@@ -1,6 +1,6 @@
 from telebot import types
 
-import config
+from app import config
 
 
 def get_default_markup():

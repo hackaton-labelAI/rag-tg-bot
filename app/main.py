@@ -1,10 +1,9 @@
 import re
 
 import telebot
-from telebot import types
 
-import config
-from api_stubs import proccess_pdf, proccess_question
+from app import config
+from app.api_stubs import proccess_pdf, proccess_question
 from utils import send_default_message, get_default_markup, return_to_menu_markup
 
 bot = telebot.TeleBot(config.BOT_TOKEN)
