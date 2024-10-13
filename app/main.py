@@ -5,24 +5,12 @@ import telebot
 import websocket
 
 from app import config
-from app.api_stubs import proccess_pdf, proccess_question
+from app.api_interaction import proccess_question
+from app.api_stubs import proccess_pdf
 from app.config import SERVER
 from utils import send_default_message, get_default_markup, return_to_menu_markup
 
 bot = telebot.TeleBot(config.BOT_TOKEN)
-
-
-@bot.message_handler(commands=['test'])
-def edit_message_slowly(message, text='привет', delay=0.5):
-    """
-    Постепенно добавляет текст в сообщение, редактируя его.
-    """
-    msg = bot.send_message(chat_id=message.chat.id, text=text[0])
-    for char in text[1:]:
-        bot.send_chat_action(message.chat.id, "typing")
-        new_text = text[:text.index(char)+1]
-        bot.edit_message_text(chat_id=message.chat.id, message_id=msg.message_id, text=new_text)
-        time.sleep(delay)
 
 
 
@@ -75,7 +63,7 @@ def message_reply(message):
         bot.send_message(message.chat.id, f'{config.WHAT_DO_YOU_WANT_STR}', reply_markup=get_default_markup())
     else:
         question = message.text
-        response = proccess_question()
+        response = proccess_question(question)
         bot.send_message(message.chat.id, response)
         bot.send_message(message.chat.id, f'{config.WHAT_DO_YOU_WANT_STR}', reply_markup=get_default_markup())
 

@@ -31,7 +31,3 @@ def proccess_question(question: str):
 
     return json.loads(response.text)
 
-
-def proccess_pdf(document):
-    pass
-    # return все ок или не ок
