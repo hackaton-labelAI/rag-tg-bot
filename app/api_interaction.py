@@ -8,9 +8,6 @@ server_address = ''
 
 
 def proccess_question(question: str):
-    headers = {
-        'accept': 'application/json',
-    }
 
     data = {
         "session_id": None,
